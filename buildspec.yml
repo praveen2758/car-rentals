@@ -6,8 +6,16 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - mvn clean package
+      - mvn install
   post_build:
     commands:
       - echo Build completed successfully
+artifacts:
+  files:
+    - target/car-rentals*/*
+  discard-paths: yes
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
 
