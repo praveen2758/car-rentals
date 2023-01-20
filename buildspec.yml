@@ -1,24 +1,18 @@
 version: 0.2
 
-
 phases:
+  install:
+    runtime-versions:
+      java: corretto11
   pre_build:
     commands:
-     - mvn install
+      - echo Nothing to do in the pre_build phase...
   build:
     commands:
-      - echo Entered the build phase...
       - echo Build started on `date`
-      - mvn clean package
+      - mvn install
   post_build:
     commands:
-      - echo Build completed successfully
-artifacts:
-  files:
-    - target/car-rentals*/*
-  discard-paths: yes
+      - echo Build completed on `date`
 
-cache:
-  paths:
-    - '/root/.m2/**/*'
 
